@@ -9,11 +9,11 @@ eddy-kafka-graphql-bridge:
     annotations:
       kubernetes.io/tls-acme: "true"
     hosts:
-      - eddy-kafka-graphql-bridge.k.eddy-analytics.org
+      - eddy-automl-subscriptions.k.eddy-analytics.org
     tls:
-      - secretName: eddy-kafka-graphql-bridge-tls
+      - secretName: eddy-automl-subscriptions-tls
         hosts:
-          - eddy-kafka-graphql-bridge.k.eddy-analytics.org
+          - eddy-automl-subscriptions.k.eddy-analytics.org
 
 eddy-automl-backend:
   ingress:
@@ -38,15 +38,11 @@ eddy-automl-ui:
       - secretName: eddy-automl-ui-tls
         hosts:
           - automl.k.eddy-analytics.org
-
   config_json:
     {
       "debug": false,
-      "authGraphQLClient": {
-        "httpEndpoint": "https://eddy-automl-backend.k.eddy-analytics.org/api/graphql"
-      },
       "dataGraphQLClient": {
         "httpEndpoint": "https://eddy-automl-backend.k.eddy-analytics.org/api/graphql",
-        "wsEndpoint": "wss://eddy-kafka-graphql-bridge.k.eddy-analytics.org/subscriptions"
+        "wsEndpoint": "wss://eddy-automl-subscriptions.k.eddy-analytics.org/subscriptions"
       }
     }
