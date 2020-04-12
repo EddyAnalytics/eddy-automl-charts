@@ -10,9 +10,13 @@ kafka:
   enabled: true
 
 eddy-kafka-graphql-bridge:
+  ingress:
+    enabled: false
   kafkaBootstrapServer: '{{ .Release.Name }}-kafka:9092'
 
 eddy-automl-backend:
+  ingress:
+    enabled: false
   dbName: eddy-automl-backend
   dbUser: eddy-automl-user
   dbPass: secure-mysql-password
@@ -20,12 +24,11 @@ eddy-automl-backend:
   dbPort: 3306
 
 eddy-automl-ui:
+  ingress:
+    enabled: false
   config_json:
     {
       "debug": false,
-      "authGraphQLClient": {
-        "httpEndpoint": "https://"
-      },
       "dataGraphQLClient": {
         "httpEndpoint": "https://",
         "wsEndpoint": "wss://"

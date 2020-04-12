@@ -1,15 +1,7 @@
 config_json:
-  config_json:
-    {
-      "debug": false,
-      "authGraphQLClient": {
-        "httpEndpoint": "https://"
-      },
-      "dataGraphQLClient": {
-        "httpEndpoint": "https://",
-        "wsEndpoint": "wss://"
-      }
-    }
+  {
+    "debug": false
+  }
 
 replicaCount: 1
 

@@ -35,14 +35,14 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          envFrom:
-            - configMapRef:
-                name: {{ include "eddy-automl-ui.fullname" . }}-config
-                optional: false
           ports:
             - name: http
               containerPort: 80
               protocol: TCP
+          volumeMounts:
+            - name: config-map-volume
+              mountPath: /app/config/config.json
+              subPath: config.json
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}
@@ -57,3 +57,7 @@ spec:
       tolerations:
 {{ toYaml . | indent 8 }}
     {{- end }}
+      volumes:
+      - name: config-map-volume
+        configMap:
+          name: {{ include "eddy-automl-ui.fullname" . }}-config
