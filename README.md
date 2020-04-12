@@ -107,7 +107,9 @@ helm install -name demo --namespace eddy-automl -f values.production.yaml ./
 Runing instances of these charts can be found at: 
 
 https://automl.k.eddy-analytics.org
+
 https://eddy-automl-backend.k.eddy-analytics.org
+
 https://eddy-automl-subscriptions.k.eddy-analytics.org
 
 ## Uninstalling
