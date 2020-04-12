@@ -2,16 +2,22 @@
 mysql:
   # https://github.com/helm/charts/tree/master/stable/mysql
   enabled: true
-  mysqlDatabase: "eddy-automl-backend"
+  mysqlDatabase: eddy-automl-backend
+  mysqlUser: eddy-automl-user
+  mysqlPassword: secure-mysql-password
 
 kafka:
   enabled: true
 
 eddy-kafka-graphql-bridge:
-  kafkaBootstrapServer: '{{ include "eddy-automl.fullname" . }}:9092'
+  kafkaBootstrapServer: '{{ include "eddy-automl.fullname" . }}-kafka:9092'
 
 eddy-automl-backend:
-  dbHost: '{{ include "eddy-automl.fullname" . }}'
+  dbName: eddy-automl-backend
+  dbUser: eddy-automl-user
+  dbPass: secure-mysql-password
+  dbHost: '{{ include "eddy-automl.fullname" . }}-mysql'
+  dbPort: 3306
 
 eddy-automl-ui:
   config_json:

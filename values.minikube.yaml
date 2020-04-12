@@ -1,0 +1,33 @@
+eddy-automl-backend:
+  service:
+    type: NodePort
+    port: 80
+  ingress:
+    enabled: true
+    annotations: {}
+    path: /
+    hosts:
+      - eddy-automl-backend.local
+
+eddy-automl-ui:
+  service:
+    type: NodePort
+    port: 80
+  ingress:
+    enabled: true
+    annotations: {}
+    path: /
+    hosts:
+      - eddy-automl-ui.local
+    
+  config_json:
+    {
+      "debug": false,
+      "authGraphQLClient": {
+        "httpEndpoint": "https://eddy-automl-backend.local"
+      },
+      "dataGraphQLClient": {
+        "httpEndpoint": "https://eddy-automl-backend.local",
+        "wsEndpoint": "wss://eddy-automl-backend.local"
+      }
+    }

@@ -1,0 +1,53 @@
+eddy-kafka-graphql-bridge:
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/tls-acme: "true"
+    hosts:
+      - eddy-kafka-graphql-bridge.k.eddy-analytics.org
+      - subscriptions.automl.eddy-analytics.org
+    tls:
+      - secretName: eddy-kafka-graphql-bridge-tls
+        hosts:
+          - eddy-kafka-graphql-bridge.k.eddy-analytics.org
+          - subscriptions.automl.eddy-analytics.org
+
+eddy-automl-backend:
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/tls-acme: "true"
+    hosts:
+      - eddy-automl-backend.k.eddy-analytics.org
+      - api.automl.eddy-analytics.org
+    tls:
+      - secretName: eddy-automl-backend-tls
+        hosts:
+          - eddy-automl-backend.k.eddy-analytics.org
+          - api.automl.eddy-analytics.org
+
+eddy-automl-ui:
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/tls-acme: "true"
+    hosts:
+      - eddy-automl-ui.k.eddy-analytics.org
+      - automl.eddy-analytics.org
+    tls:
+      - secretName: eddy-automl-ui-ls
+        hosts:
+          - eddy-automl-ui.k.eddy-analytics.org
+          - automl.eddy-analytics.org
+
+  config_json:
+    {
+      "debug": false,
+      "authGraphQLClient": {
+        "httpEndpoint": "https://api.automl.eddy-analytics.org/api/graphql"
+      },
+      "dataGraphQLClient": {
+        "httpEndpoint": "https://api.automl.eddy-analytics.org/api/graphql",
+        "wsEndpoint": "wss://subscriptions.eddy-analytics.org/subscriptions"
+      }
+    }
