@@ -1,0 +1,14 @@
+apiVersion: v1
+name: eddy-automl
+description: A Helm chart for Eddy AutoML
+version: 0.1.0
+appVersion: latest
+dependencies:
+  - name: mysql
+    version: 1.4.0
+    repository: "https://kubernetes-charts.storage.googleapis.com/"
+    condition: mysql.enabled
+  - name: kafka
+    version: 0.20.9
+    repository: "http://storage.googleapis.com/kubernetes-charts-incubator"
+    condition: kafka.enabled

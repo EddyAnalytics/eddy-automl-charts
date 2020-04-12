@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "eddy-automl-backend.fullname" . }}-config
+data:
+  DEBUG: {{ .Values.debug | quote}}
+  SECRET_KEY: {{ .Values.djangoSecretKey | quote}}
+  ALLOWED_HOSTS: {{ .Values.allowedHosts | quote}}
+  CORS_ORIGIN_ALLOW_ALL: {{ .Values.corsOriginAllowAll | quote}}
+
+  DB_NAME: {{ .Values.dbName | quote}}
+  DB_USER: {{ .Values.dbUser | quote}}
+  DB_PASS: {{ .Values.dbPass | quote}}
+  DB_HOST: {{ tpl .Values.dbHost . | quote}}
+  DB_PORT: {{ .Values.dbPort | quote}}

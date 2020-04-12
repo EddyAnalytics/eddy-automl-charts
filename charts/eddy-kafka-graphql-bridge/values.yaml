@@ -1,0 +1,45 @@
+# app settings
+kafkaBootstrapServer: "my-cluster-kafka-bootstrap.strimzi-kafka-operator.svc.cluster.local:9092"
+behindProxy: "False"
+debug: "False"
+jwtAlgorithm: "RS256"
+jwtKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC8EJjqoQ37WNIG6yJD8YnB2JpOb9kHJzn4GlpxOPOongE6oTDZpNNiX3OB8Ckz7Y5RCxBhVRXdbGNcPRIMDP2Lmrddlm3JrdwxUZX6nxB6V4b3s8lQCrVekJBLZRbq8CchAcArcYeZEPLTdq+RrDWisdI7uraJhw00Oqju705/suHUVVxBSNYGdDMu6Rph7M8ezyEge+6VCTJaLjBn1RUWdxH0aBNs/kXfFc5uW5YhR+djM+jXqX1C3YXnJW6KHaiWlUPSqzQ4cNyvLey/Ck7cUx/1S8sew0x/L+vvc2JrkXK3NnSrZBF/DjGlYmILBwG9q4pXYNVhP7fPQMHNUargCO/4GWPBlNuS0BHa3FViG6khVNFrQFibKGH555xBim/4x/uTxooGjcw4lt3RufkZiXh0OoeZ3XorVf+bEUa1NHZXRme4TKO+HUVYSjcVs3l2PyhIYsgOhjFgERpFdWqx3BdbspKggvhLIHe+f77HSiME8L/eM9q9kP/KA0T4W85t7IGaHqBtzTEofaP3oimcNY6Wu8/IhAUKeyNRX387qHlyT7ViGg5hYWLQSLZvRzsY+DJRjLJiLhi7gg6rBO3az3AlW99md1i24nKkZNCqxbl4mcIO/jR5WqJ03I/p6B1fhC0ogcEEksQu9P6MUEkSO9/FWnBwAyG6k/sgTF4oMw=="
+jwtPrefix: "Bearer"
+jwtUserField: "user_id"
+metrics: "True"
+
+replicaCount: 1
+
+image:
+  repository: eddyanalytics/eddy-kafka-graphql-bridge
+  tag: latest
+  pullPolicy: Always
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  path: /
+  hosts:
+    - chart-example.local
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+annotations: {}
+podAnnotations: {}

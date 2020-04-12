@@ -1,0 +1,9 @@
+dependencies:
+- name: mysql
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  version: 1.4.0
+- name: kafka
+  repository: http://storage.googleapis.com/kubernetes-charts-incubator
+  version: 0.20.9
+digest: sha256:5e19feb07e8aeb95afdb8953c17aad567d5702ba11262271547283a49bf13a45
+generated: "2020-04-12T14:17:48.324248+02:00"

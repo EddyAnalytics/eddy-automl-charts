@@ -1,0 +1,48 @@
+config_json:
+  config_json:
+    {
+      "debug": false,
+      "authGraphQLClient": {
+        "httpEndpoint": "https://"
+      },
+      "dataGraphQLClient": {
+        "httpEndpoint": "https://",
+        "wsEndpoint": "wss://"
+      }
+    }
+
+replicaCount: 1
+
+image:
+  repository: eddyanalytics/eddy-automl-ui
+  tag: latest
+  pullPolicy: Always
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  path: /
+  hosts:
+    - chart-example.local
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+annotations: {}
+podAnnotations: {}

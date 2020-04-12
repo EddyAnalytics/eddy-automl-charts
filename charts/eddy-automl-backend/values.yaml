@@ -1,0 +1,48 @@
+# general
+debug: True
+djangoSecretKey: "!e*6)vw88z&%p7j7vs0e-g=e3cx!pccbm6)z#ef88%ur-sn-2*"
+allowedHosts: localhost,127.0.0.1
+corsOriginAllowAll: True
+
+# database
+dbName: eddy-automl
+dbUser: eddy_backend
+dbPass: mysqlpassword
+dbHost: dbhost
+dbPort: 3306
+
+replicaCount: 1
+
+image:
+  repository: eddyanalytics/eddy-automl-backend
+  tag: latest
+  pullPolicy: Always
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  path: /
+  hosts:
+    - chart-example.local
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+annotations: {}
+podAnnotations: {}

@@ -1,0 +1,27 @@
+# the database that the eddy-automl-backend uses
+mysql:
+  # https://github.com/helm/charts/tree/master/stable/mysql
+  enabled: true
+  mysqlDatabase: "eddy-automl-backend"
+
+kafka:
+  enabled: true
+
+eddy-kafka-graphql-bridge:
+  kafkaBootstrapServer: '{{ include "eddy-automl.fullname" . }}:9092'
+
+eddy-automl-backend:
+  dbHost: '{{ include "eddy-automl.fullname" . }}'
+
+eddy-automl-ui:
+  config_json:
+    {
+      "debug": false,
+      "authGraphQLClient": {
+        "httpEndpoint": "https://"
+      },
+      "dataGraphQLClient": {
+        "httpEndpoint": "https://",
+        "wsEndpoint": "wss://"
+      }
+    }
