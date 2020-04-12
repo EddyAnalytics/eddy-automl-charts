@@ -10,13 +10,13 @@ kafka:
   enabled: true
 
 eddy-kafka-graphql-bridge:
-  kafkaBootstrapServer: '{{ include "eddy-automl.fullname" . }}-kafka:9092'
+  kafkaBootstrapServer: '{{ .Release.Name }}-kafka:9092'
 
 eddy-automl-backend:
   dbName: eddy-automl-backend
   dbUser: eddy-automl-user
   dbPass: secure-mysql-password
-  dbHost: '{{ include "eddy-automl.fullname" . }}-mysql'
+  dbHost: '{{ .Release.Name }}-mysql'
   dbPort: 3306
 
 eddy-automl-ui:
