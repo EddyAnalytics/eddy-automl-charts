@@ -1,30 +1,31 @@
-minikube-ip: 192.168.64.10
+minikube-ip: 192.168.64.12
 
 eddy-kafka-graphql-bridge:
   ingress:
     enabled: true
     annotations: {}
     hosts:
-      - subscriptions.192.168.64.10.nip.io
+      - subscriptions.192.168.64.12.nip.io
 
 eddy-automl-backend:
+  allowedHosts: localhost,automl-ui.192.168.64.12.nip.io
   ingress:
     enabled: true
     annotations: {}
     hosts:
-      - api.192.168.64.10.nip.io
+      - api.192.168.64.12.nip.io
 
 eddy-automl-ui:
   ingress:
     enabled: true
     annotations: {}
     hosts:
-      - automl-ui.192.168.64.10.nip.io
+      - automl-ui.192.168.64.12.nip.io
   config_json:
     {
       "debug": false,
       "dataGraphQLClient": {
-        "httpEndpoint": "http://api.192.168.64.10.nip.io/api/graphql",
-        "wsEndpoint": "ws://subscriptions.192.168.64.10.nip.io/subscriptions"
+        "httpEndpoint": "http://api.192.168.64.12.nip.io/api/graphql",
+        "wsEndpoint": "ws://subscriptions.192.168.64.12.nip.io/subscriptions"
       }
     }
