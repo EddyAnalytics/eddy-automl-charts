@@ -22,6 +22,8 @@ eddy-kafka-graphql-bridge:
 
 eddy-automl-backend:
   allowedHosts: localhost,127.0.0.1,automl.k.eddy-analytics.org
+  jobsNamespace: eddy-automl-jobs
+  kafkaBootstrapServer: 'my-cluster-kafka-bootstrap.strimzi-kafka-operator.svc.cluster.local:9092'
   # Annotate the deployment with keel (pull the latest docker image) and reloader (reload on ConfigMap changes)
   annotations:
       keel.sh/match-tag: "true"

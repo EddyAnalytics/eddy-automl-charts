@@ -12,3 +12,6 @@ data:
   DB_PASS: {{ .Values.dbPass | quote}}
   DB_HOST: {{ tpl .Values.dbHost . | quote}}
   DB_PORT: {{ .Values.dbPort | quote}}
+  
+  JOBS_NAMESPACE: {{ .Values.jobsNamespace | quote}}
+  KAFKA_BOOTSTRAP_SERVER: {{ tpl .Values.kafkaBootstrapServer . | quote }}

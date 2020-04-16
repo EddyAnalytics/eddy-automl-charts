@@ -2,7 +2,8 @@
 debug: True
 djangoSecretKey: "!e*6)vw88z&%p7j7vs0e-g=e3cx!pccbm6)z#ef88%ur-sn-2*"
 allowedHosts: localhost,127.0.0.1
-corsOriginAllowAll: True
+jobsNamespace: eddy-automl-jobs
+kafkaBootstrapServer: broker:9092
 
 # database
 dbName: eddy-automl
