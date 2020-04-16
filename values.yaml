@@ -15,6 +15,7 @@ eddy-kafka-graphql-bridge:
   kafkaBootstrapServer: '{{ .Release.Name }}-kafka:9092'
 
 eddy-automl-backend:
+  debug: True
   jobsNamespace: eddy-automl-jobs
   kafkaBootstrapServer: '{{ .Release.Name }}-kafka:9092'
   ingress:

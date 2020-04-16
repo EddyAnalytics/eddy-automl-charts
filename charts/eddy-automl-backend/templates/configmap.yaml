@@ -5,7 +5,7 @@ metadata:
 data:
   DEBUG: {{ .Values.debug | quote}}
   SECRET_KEY: {{ .Values.djangoSecretKey | quote}}
-  ALLOWED_HOSTS: {{ .Values.allowedHosts | quote}}
+  ALLOWED_HOSTS_LIST: {{ .Values.allowedHosts | quote}}
 
   DB_NAME: {{ .Values.dbName | quote}}
   DB_USER: {{ .Values.dbUser | quote}}
