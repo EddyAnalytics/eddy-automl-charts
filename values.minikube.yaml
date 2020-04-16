@@ -1,3 +1,7 @@
+kafka:
+  topics: 
+    - name: empty_topic_example
+
 eddy-kafka-graphql-bridge:
   service:
     type: NodePort
