@@ -64,3 +64,7 @@ eddy-automl-ui:
         "wsEndpoint": "wss://eddy-automl-subscriptions.k.eddy-analytics.org/subscriptions"
       }
     }
+
+demoDataJob:
+  enabled: true
+  kafkaBootstrapServer: 'my-cluster-kafka-bootstrap.strimzi-kafka-operator.svc.cluster.local:9092'

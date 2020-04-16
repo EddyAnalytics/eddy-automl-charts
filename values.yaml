@@ -36,3 +36,7 @@ eddy-automl-ui:
         "wsEndpoint": "wss://"
       }
     }
+
+demoDataJob:
+  enabled: true
+  kafkaBootstrapServer: '{{ .Release.Name }}-kafka:9092'

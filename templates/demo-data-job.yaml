@@ -1,0 +1,18 @@
+{{- if .Values.demoDataJob.enabled -}}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "eddy-automl.fullname" . }}-data-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: {{ include "eddy-automl.fullname" . }}-data-job-container
+        image: eddyanalytics/eddy-automl-demo-datasets
+        env:
+        - name: KAFKA_BROKER
+          value: {{ tpl .Values.demoDataJob.kafkaBootstrapServer . | quote }}
+      restartPolicy: Never
+  backoffLimit: 4
+{{- end }}
+
