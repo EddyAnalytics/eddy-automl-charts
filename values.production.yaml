@@ -2,6 +2,11 @@ kafka:
   enabled: false
 
 eddy-kafka-graphql-bridge:
+  # Annotate the deployment with keel (pull the latest docker image) and reloader (reload on ConfigMap changes)
+  annotations:
+    keel.sh/match-tag: "true"
+    keel.sh/policy: force
+    reloader.stakater.com/auto: "true"
   # Use the existing Kafka cluster service name from the strimzi-kafka-operator namespace
   kafkaBootstrapServer: 'my-cluster-kafka-bootstrap.strimzi-kafka-operator.svc.cluster.local:9092'
   ingress:
@@ -16,6 +21,11 @@ eddy-kafka-graphql-bridge:
           - eddy-automl-subscriptions.k.eddy-analytics.org
 
 eddy-automl-backend:
+  # Annotate the deployment with keel (pull the latest docker image) and reloader (reload on ConfigMap changes)
+  annotations:
+      keel.sh/match-tag: "true"
+      keel.sh/policy: force
+      reloader.stakater.com/auto: "true"
   ingress:
     enabled: true
     annotations:
@@ -28,6 +38,11 @@ eddy-automl-backend:
           - eddy-automl-backend.k.eddy-analytics.org
 
 eddy-automl-ui:
+  # Annotate the deployment with keel (pull the latest docker image) and reloader (reload on ConfigMap changes)
+  annotations:
+      keel.sh/match-tag: "true"
+      keel.sh/policy: force
+      reloader.stakater.com/auto: "true"
   ingress:
     enabled: true
     annotations:
