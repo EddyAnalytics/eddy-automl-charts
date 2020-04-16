@@ -4,6 +4,7 @@ eddy-kafka-graphql-bridge:
     port: 8090
 
 eddy-automl-backend:
+  allowedHosts: '*'
   service:
     type: NodePort
     port: 8000

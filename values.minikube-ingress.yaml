@@ -8,7 +8,7 @@ eddy-kafka-graphql-bridge:
       - subscriptions.192.168.64.13.nip.io
 
 eddy-automl-backend:
-  allowedHosts: localhost,192.168.64.13,automl-ui.192.168.64.13.nip.io
+  allowedHosts: localhost,192.168.64.13,api.192.168.64.13.nip.io,automl-ui.192.168.64.13.nip.io
   ingress:
     enabled: true
     annotations: {}
