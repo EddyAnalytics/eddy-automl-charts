@@ -24,9 +24,9 @@ spec:
       labels:
         app: {{ include "eddy-kafka-graphql-bridge.name" . }}
         release: {{ .Release.Name }}
-      {{- if .Values.podAnnotations }}
+      {{- if .Values.annotations }}
       annotations:
-        {{- range $key, $value := .Values.podAnnotations }}
+        {{- range $key, $value := .Values.annotations }}
         {{ $key }}: {{ $value | quote }}
         {{- end }}
       {{- end }}

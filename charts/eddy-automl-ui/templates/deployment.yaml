@@ -7,9 +7,9 @@ metadata:
     chart: {{ include "eddy-automl-ui.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
-  {{- if .Values.podAnnotations }}
+  {{- if .Values.annotations }}
   annotations:
-    {{- range $key, $value := .Values.podAnnotations }}
+    {{- range $key, $value := .Values.annotations }}
     {{ $key }}: {{ $value | quote }}
     {{- end }}
   {{- end }}
